@@ -206,7 +206,7 @@ export default function AboutUs() {
               className="
     full-bleed relative text-white overflow-hidden
     bg-[url('/assets/YesItSecurity-about-us/390_1242.png')]
-    bg-no-repeat bg-cover bg-[position:center_-50px]
+    bg-no-repeat bg-cover bg-[position:center_-65px]
     sm:bg-[url('/assets/bg/aboutus-bg1.png')]
     sm:bg-no-repeat sm:bg-cover sm:bg-center
     opacity-100
