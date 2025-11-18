@@ -31,9 +31,9 @@ export default function Banner({ className = "" }: BannerProps) {
       />
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Left Background */}
+        {/* Left Background (mobile only) */}
         <div
-          className="absolute left-0 top-0 w-[348px] h-[801px] opacity-100 md:opacity-40 transform -translate-y-4"
+          className="absolute left-0 top-0 w-[348px] h-[801px] opacity-100 md:hidden transform -translate-y-4"
           style={{
             backgroundImage: `url(${backgroundImage1})`,
             backgroundSize: '344.84% 100%',
@@ -111,25 +111,26 @@ export default function Banner({ className = "" }: BannerProps) {
       </div>
 
       {/* Content */}
-      <div className="container-site relative z-10 flex flex-col items-center justify-center min-h-screen py-16 lg:py-[120px] lg:px-[120px]">
+      <div className="relative z-10 mx-auto w-full flex justify-center min-h-screen py-16 lg:py-[120px]">
         {/* Main Content */}
-        <div className="text-center max-w-6xl mx-auto space-y-8">
+        <div className="w-[390px] px-6 pt-[120px] pb-[60px] flex flex-col items-center gap-[24px] text-center self-stretch sm:max-w-6xl sm:w-full sm:px-0 sm:pt-16 sm:pb-16 lg:px-[120px]">
+
           {/* Main Heading */}
-          <h1 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-semibold mb-6">
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight lg:leading-[77px]">
+          <h1 className="text-white font-['Wix_Madefor_Display',_sans-serif] mb-6">
+            <span className="block text-[32px] leading-[40px] font-medium sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] lg:leading-[77px]">
               Yes Cybersecurity
             </span>
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] leading-tight lg:leading-[77px]">
+            <span className="block text-[32px] leading-[40px] font-medium sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] lg:leading-[77px] lg:whitespace-nowrap">
               Protect your business, end to end.
             </span>
           </h1>
 
           {/* Subtitle */}
-          <div className="text-white font-['Wix_Madefor_Display',_sans-serif] font-medium mb-12 max-w-4xl mx-auto">
-            <p className="text-lg sm:text-xl lg:text-[20px] leading-relaxed lg:leading-[26px] mb-2">
+          <div className="text-white font-['Wix_Madefor_Display',_sans-serif] mb-12 max-w-4xl mx-auto">
+            <p className="text-[16px] leading-[22px] font-normal sm:text-xl lg:text-[20px] lg:leading-[26px] mb-2">
               A Professional Cybersecurity Agency
             </p>
-            <p className="text-lg sm:text-xl lg:text-[20px] leading-relaxed lg:leading-[26px]">
+            <p className="text-[16px] leading-[22px] font-normal sm:text-xl lg:text-[20px] lg:leading-[26px]">
               Precision-driven solutions you can trust every step of the way.
             </p>
           </div>

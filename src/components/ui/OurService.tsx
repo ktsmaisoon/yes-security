@@ -28,6 +28,7 @@ const serviceHovers = {
 interface OurServiceProps {
   className?: string
   hideHeader?: boolean
+  disableBackground?: boolean
 }
 
 interface ServiceCard {
@@ -98,24 +99,42 @@ const services: ServiceCard[] = [
   }
 ]
 
-export default function OurService({ className = "", hideHeader = false }: OurServiceProps) {
+export default function OurService({ className = "", hideHeader = false, disableBackground = false }: OurServiceProps) {
   return (
     <section
-      className={`relative overflow-visible bg-black md:bg-transparent py-16 lg:pt-[56px] lg:pb-[100px] ${className}`}
+      className={`relative overflow-visible bg-black md:bg-transparent pt-0 pb-0 lg:pt-[56px] lg:pb-[100px] md:pb-16 ${className}`}
       aria-label="Our cybersecurity services"
     >
-      {/* Background image */}
-      <div className="hidden md:block absolute top-[-370px] left-[-10px] h-[1200px] w-[1500px] z-0">
-        <Image
-          src="/assets/bg/mainpage-bg.png"
-          alt="Main page background"
-          width={2000}
-          height={1700}
-          style={{ objectFit: "cover", objectPosition: "top left" }}
-          className="opacity-100"
-          priority
-        />
-      </div>
+      {/* Background image (shared with OurServiceBanner) */}
+      {!disableBackground && (
+        <>
+          {/* Desktop background */}
+          <div className="hidden md:flex absolute top-[-410px] left-1/2 -translate-x-1/2 h-[1169px] w-[1515px] flex-col items-center z-0">
+            <Image
+              src={`${base}/assets/bg/ourservice-bg1.png`}
+              alt="Our services background"
+              fill
+              priority
+              style={{ objectFit: "cover", objectPosition: "top center" }}
+              className="opacity-100"
+            />
+          </div>
+
+          {/* Mobile background: shared between OurServiceBanner and OurService */}
+          <div className="hidden md:hidden" />
+
+          <div className="flex md:hidden absolute top-[-344px] left-1/2 -translate-x-1/2 h-[848px] w-[390px] flex-col items-center z-0">
+            <Image
+              src={`${base}/assets/bg/OurServices-Mobile-bg.png`}
+              alt="Our services mobile background"
+              fill
+              priority
+              style={{ objectFit: "cover", objectPosition: "top center" }}
+              className="opacity-100"
+            />
+          </div>
+        </>
+      )}
 
       {/* Content */}
       <div className="relative z-[1] mx-auto w-full max-w-[1440px] px-4 sm:px-4 flex justify-center lg:block">
@@ -123,7 +142,7 @@ export default function OurService({ className = "", hideHeader = false }: OurSe
         <div className="w-[390px] px-6 flex flex-col items-start gap-10 lg:w-full lg:px-0">
           {!hideHeader && (
             <div className="mb-0 space-y-4 lg:px-[120px]">
-              <h2 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-semibold text-3xl sm:text-4xl lg:text-[48px] leading-tight lg:leading-[58px]">
+              <h2 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-medium text-[32px] leading-[40px] sm:text-4xl sm:leading-tight lg:text-[48px] lg:leading-[58px]">
                 Our Services
               </h2>
               {/* Intro description - body/sm, 3 lines (all breakpoints) */}

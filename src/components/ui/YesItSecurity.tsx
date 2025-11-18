@@ -8,7 +8,7 @@ interface YesItSecurityProps {
 export default function YesItSecurity({ className = "" }: YesItSecurityProps) {
   return (
     <section
-      className={`full-bleed relative overflow-visible bg-transparent md:bg-black py-16 ${className}`}
+      className={`full-bleed relative overflow-visible bg-transparent py-16 ${className}`}
       aria-label="Yes it Security - Professional Cybersecurity Services"
     >
       <div className="container-site relative z-[1]">

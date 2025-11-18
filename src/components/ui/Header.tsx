@@ -47,7 +47,7 @@ export default function Header() {
   const navLinks = getNavLinks();
 
   return (
-    <header className="full-bleed bg-[#000c39] text-white" role="banner">
+    <header className="full-bleed bg-[#000c39] text-white relative z-[100]" role="banner">
       <nav className="w-full py-2.5" role="navigation" aria-label="Main navigation">
         <div className="container-site">
           {/* Main Header Bar */}

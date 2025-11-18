@@ -39,18 +39,18 @@ export default function Home() {
       {/* Desktop-only background between YesItSecurity and OurService */}
       <div className="relative hidden md:block bg-black">
         <div
-          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+          className="absolute inset-x-0 top-[360px] h-[700px] bg-cover bg-top bg-no-repeat"
           style={{ backgroundImage: "url(/assets/bg/mainpage-bg.png)", backgroundPosition: "center -80px" }}
           aria-hidden="true"
         />
         <div className="relative z-[1] flex flex-col">
           <YesItSecurity />
-          <OurService />
+          <OurService disableBackground />
         </div>
       </div>
 
       {/* Section 4: Our Services (mobile) */}
-      <OurService className="md:hidden" />
+      <OurService className="md:hidden" disableBackground />
       <OurBlog className="lg:pt-0" />
       <CallToAction />
       <Footer />

@@ -30,7 +30,7 @@ const logoData = [
 export default function WhoTrustsUs({ className = "" }: WhoTrustsUsProps) {
   return (
     <section
-      className={`full-bleed relative pt-12 pb-16 md:py-20 bg-transparent md:bg-black overflow-hidden ${className}`}
+      className={`full-bleed relative pt-10 pb-16 md:py-20 bg-transparent md:bg-black overflow-hidden ${className}`}
       aria-label="Client testimonials and trusted companies"
     >
       {/* Background Decoration */}
