@@ -2,6 +2,7 @@ import Image from "next/image";
 
 // Background image
 const callToActionBg = "/assets/bg/calltoaction-bg.png";
+const callToActionBgMobile = "/assets/bg/calltoaction-bg-mobile.png";
 
 interface CallToActionProps {
   className?: string;
@@ -21,11 +22,20 @@ export default function CallToAction({ className = "" }: CallToActionProps) {
           fill
           style={{ objectFit: "cover", objectPosition: "center" }}
           priority
+          className="hidden lg:block"
+        />
+        <Image
+          src={callToActionBgMobile}
+          alt="Call to action background mobile"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center 100%" }}
+          priority
+          className="block lg:hidden"
         />
       </div>
 
       {/* Main Content */}
-      <div className="container-site relative z-10 text-center lg:px-[120px] lg:py-[120px]">
+      <div className="container-site relative z-10 flex flex-col items-center gap-[40px] text-center self-stretch px-6 pt-[60px] pb-[120px] lg:px-[120px] lg:py-[120px]">
         <div className="w-full max-w-[384px] md:max-w-5xl mx-auto space-y-10 lg:self-stretch">
           <h2 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-semibold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight mb-8 lg:mb-12">
             <span>Build resilience.</span>

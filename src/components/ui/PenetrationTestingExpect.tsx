@@ -11,24 +11,23 @@ export default function PenetrationTestingExpect() {
 
   return (
     <section aria-labelledby="pt-expect" className="text-white">
-      <div className="container-site py-12 lg:py-16">
-        <div className="relative rounded-2xl overflow-hidden">
-          {/* Background image */}
-          <div className="relative h-[420px] sm:h-[460px] lg:h-[520px]">
-            <Image
-              src={`${base}/assets/penetration-testing%20/penetrationtesting-bg4.png`}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-            />
-
-            {/* Content overlay */}
-            <div className="absolute inset-0 px-6 sm:px-10 lg:px-12 py-8 sm:py-10 lg:py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Left heading */}
+      <div className="mx-auto w-[1440px] px-0 py-[100px] flex flex-col items-center gap-[40px]">
+        <div
+          className="mx-auto w-[1200px] px-[60px] py-0 flex items-center gap-[15px] rounded-[20px] border border-[#393939] overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 2.4%, rgba(0, 0, 0, 0.60) 32.9%), url(${base}/assets/penetration/PenetrationTestingWhy-bg.png)`,
+            backgroundPosition: '50% 50%',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          {/* Content */}
+          <div className="w-full py-[42px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left heading */}
+            <div className="self-stretch">
               <h2
                 id="pt-expect"
-                className="font-['Wix_Madefor_Display',_sans-serif] not-italic font-semibold text-[28px] leading-[38px] sm:text-[32px] sm:leading-[42px] lg:text-[36px] lg:leading-[50px] max-w-[14ch]"
+                className="font-['Wix_Madefor_Display',_sans-serif] not-italic font-semibold text-[48px] leading-[58px] max-w-[14ch] text-white"
               >
                 What You Can
                 <br className="hidden sm:block" />
@@ -36,12 +35,14 @@ export default function PenetrationTestingExpect() {
                 <br className="hidden sm:block" />
                 Partnering with Us
               </h2>
+            </div>
 
-              {/* Right pills list */}
-              <ul className="flex flex-col gap-4 lg:gap-5" role="list">
+            {/* Right pills list */}
+            <div className="justify-self-center self-start flex w-full max-w-[607px] flex-col items-center gap-[15px] flex-shrink-0">
+              <ul className="flex flex-col gap-[15px] self-stretch" role="list">
                 {items.map((text, i) => (
-                  <li key={i} className="">
-                    <div className="rounded-full bg-black/55 backdrop-blur-[2px] border border-white/20 px-5 sm:px-6 lg:px-8 py-4 text-sm sm:text-base lg:text-lg leading-6 text-white shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
+                  <li key={i}>
+                    <div className="flex h-[104px] px-12 justify-start items-center gap-[10px] w-full rounded-[96px] border border-[#5E5E5E] bg-[rgba(0,0,0,0.90)] text-white text-left">
                       {text}
                     </div>
                   </li>

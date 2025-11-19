@@ -18,7 +18,7 @@ export default function YesItSecurityAboutUs({ className = "" }: YesItSecurityAb
     px-[18px] py-[52px]
     rounded-[50px]
     sm:px-8
-    lg:flex-none lg:rounded-[50px] lg:px-[142px] lg:py-[40px]
+    lg:flex-none lg:rounded-[200px] lg:px-[142px] lg:py-[52px]
   "
         >
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-start gap-8 lg:gap-[177px]">
@@ -32,7 +32,7 @@ export default function YesItSecurityAboutUs({ className = "" }: YesItSecurityAb
     leading-[32px]
     lg:font-[600]
     lg:text-[36px]
-    lg:leading-[58px]
+    lg:leading-[38px]
     bg-gradient-to-r from-[#3EFF51] to-white
     bg-clip-text text-transparent
     whitespace-nowrap

@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       <Banner />
 
-      {/* Mobile-only background between WhoTrustsUs and YesItSecurity */}
+      {/* Mobile-only background behind WhoTrustsUs and YesItSecurity */}
       <div className="relative md:hidden">
         <div
           className="absolute inset-0 bg-cover bg-top bg-no-repeat"
@@ -27,7 +27,7 @@ export default function Home() {
 
         <div className="relative z-[1] flex flex-col">
           <WhoTrustsUs />
-          <YesItSecurity />
+          <YesItSecurity className="pt-8" />
         </div>
       </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
       {/* Desktop-only background between YesItSecurity and OurService */}
       <div className="relative hidden md:block bg-black">
         <div
-          className="absolute inset-x-0 top-[360px] h-[700px] bg-cover bg-top bg-no-repeat"
+          className="absolute inset-x-0 top-[525px] h-[700px] bg-cover bg-top bg-no-repeat"
           style={{ backgroundImage: "url(/assets/bg/mainpage-bg.png)", backgroundPosition: "center -80px" }}
           aria-hidden="true"
         />

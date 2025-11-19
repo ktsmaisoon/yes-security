@@ -112,9 +112,7 @@ export default function Banner({ className = "" }: BannerProps) {
 
       {/* Content */}
       <div className="relative z-10 mx-auto w-full flex justify-center min-h-screen py-16 lg:py-[120px]">
-        {/* Main Content */}
-        <div className="w-[390px] px-6 pt-[120px] pb-[60px] flex flex-col items-center gap-[24px] text-center self-stretch sm:max-w-6xl sm:w-full sm:px-0 sm:pt-16 sm:pb-16 lg:px-[120px]">
-
+        <div className="w-[390px] px-6 pt-[120px] pb-[60px] flex flex-col items-center gap-[32px] text-center self-stretch sm:max-w-6xl sm:w-full sm:px-0 sm:pt-16 sm:pb-16 lg:px-[120px]">
           {/* Main Heading */}
           <h1 className="text-white font-['Wix_Madefor_Display',_sans-serif] mb-6">
             <span className="block text-[32px] leading-[40px] font-medium sm:text-4xl md:text-5xl lg:text-6xl xl:text-[64px] lg:leading-[77px]">

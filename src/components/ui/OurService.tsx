@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
 // Assets from public/assets/ourservice/
@@ -47,7 +48,7 @@ const services: ServiceCard[] = [
     description: "Simulated real world attacks to reveal exploitable weaknesses across apps, networks, and infrastructure.",
     icon: serviceIcons[1],
     hover: serviceHovers[1],
-    link: "/services/penetration-testing"
+    link: "/penetration-testing"
   },
   {
     id: 2,
@@ -102,7 +103,7 @@ const services: ServiceCard[] = [
 export default function OurService({ className = "", hideHeader = false, disableBackground = false }: OurServiceProps) {
   return (
     <section
-      className={`relative overflow-visible bg-black md:bg-transparent pt-0 pb-0 lg:pt-[56px] lg:pb-[100px] md:pb-16 ${className}`}
+      className={`relative overflow-visible bg-black md:bg-transparent pt-0 pb-0 ${className}`}
       aria-label="Our cybersecurity services"
     >
       {/* Background image (shared with OurServiceBanner) */}
@@ -138,8 +139,8 @@ export default function OurService({ className = "", hideHeader = false, disable
 
       {/* Content */}
       <div className="relative z-[1] mx-auto w-full max-w-[1440px] px-4 sm:px-4 flex justify-center lg:block">
-        {/* Inner mobile layout wrapper (390px) */}
-        <div className="w-[390px] px-6 flex flex-col items-start gap-10 lg:w-full lg:px-0">
+        {/* Inner layout wrapper */}
+        <div className="w-[390px] px-6 md:px-24 flex flex-col items-start gap-[40px] self-stretch pt-[56px] pb-[50px] lg:w-full lg:px-0">
           {!hideHeader && (
             <div className="mb-0 space-y-4 lg:px-[120px]">
               <h2 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-medium text-[32px] leading-[40px] sm:text-4xl sm:leading-tight lg:text-[48px] lg:leading-[58px]">
@@ -203,7 +204,7 @@ export default function OurService({ className = "", hideHeader = false, disable
                 <p className="relative z-10 text-gray-200 font-['Wix_Madefor_Display',_sans-serif] font-normal text-base leading-relaxed mb-6">
                   {service.description}
                 </p>
-                <a
+                <Link
                   href={service.link}
                   className="relative z-10 mt-auto inline-flex items-center font-['Wix_Madefor_Display',_sans-serif] font-normal text-sm"
                   aria-label={`Read more about ${service.title}`}
@@ -211,7 +212,7 @@ export default function OurService({ className = "", hideHeader = false, disable
                   <span className="relative text-gray-300 hover:text-[#3eff51] transition-colors duration-200 after:block after:h-[2px] after:w-0 after:bg-[#3eff51] after:mt-1 after:transition-all hover:after:w-full">
                     Read more&nbsp;&nbsp;&nbsp;→
                   </span>
-                </a>
+                </Link>
               </article>
             ))}
           </div>

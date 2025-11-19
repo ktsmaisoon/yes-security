@@ -2,13 +2,14 @@ import Image from "next/image"
 
 // Existing logo assets
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
-const logoSingha = `${base}/assets/Who-trusts-us/525c5603d27fe296e84e043d0f2cdfbfff2419c9.png`
-const logoAgoda = `${base}/assets/Who-trusts-us/999c4b477e947c5e2701e31ec65610d12169d79b.png`
-const logoLazada = `${base}/assets/Who-trusts-us/10de95f44cf42d5b0fa0e176262c04dbb608ba46.png`
-const logoPTT = `${base}/assets/Who-trusts-us/299b8fc05496254cacd490d985d1b164f17b6dac.png`
-const logoLandRover = `${base}/assets/Who-trusts-us/29b4d53bdb940a1c9139daad2369767217a29183.png`
-const logoGaysorn = `${base}/assets/Who-trusts-us/b4fe507fe4fd448d5a5d5cbe84115ca4a683f93e.png`
-const logoItaltai = `${base}/assets/Who-trusts-us/4dddf07aca6747c84a75d7994d39aeff424083f9.png`
+const logoSingha = `${base}/assets/penetration/Singha.png`
+const logoAgoda = `agoda-inline-svg`
+const logoPTT = `${base}/assets/penetration/PTT.png`
+const logoLazada = `${base}/assets/penetration/Lazada.png`
+const logoLandRover = `${base}/assets/penetration/LandRover.png`
+const logoJaguar = `${base}/assets/penetration/Jaguar.png`
+const logoGaysorn = `${base}/assets/penetration/Gaysorn.png`
+const logoItaltai = `${base}/assets/penetration/Italthai.png`
 
 export default function TrustedBy() {
   const logos = [
@@ -17,22 +18,88 @@ export default function TrustedBy() {
     logoPTT,
     logoLazada,
     logoLandRover,
+    logoJaguar,
     logoGaysorn,
     logoItaltai,
   ]
 
+  // Per-logo layout boxes (width, height, padding)
+  const boxes = [
+    // Singha
+    { w: 60, h: 64, p: { t: 8, r: 5.075, b: 7.293, l: 5 } },
+    // Agoda
+    { w: 96.616, h: 63.878, p: { t: 12.776, r: 11.854, b: 13.574, l: 10.504 } },
+    // PTT
+    { w: 96.616, h: 63.878, p: { t: 11.977, r: 8.288, b: 12.776, l: 8.48 } },
+    // Lazada
+    { w: 96.616, h: 63.878, p: { t: 19.962, r: 5.645, b: 19.997, l: 6.332 } },
+    // LandRover
+    { w: 96.616, h: 63.878, p: { t: 14.373, r: 15.778, b: 14.373, l: 14.564 } },
+    // Jaguar
+    { w: 96.616, h: 63.878, p: { t: 14.373, r: 17.127, b: 14.373, l: 16.409 } },
+    // Gaysorn
+    { w: 96.616, h: 63.878, p: { t: 7.186, r: 28.059, b: 7.896, l: 28.633 } },
+    // Italthai
+    { w: 96.616, h: 63.878, p: { t: 6.388, r: 19.962, b: 6.984, l: 20.761 } },
+  ] as const
+
   return (
-    <section aria-labelledby="trusted-title" className="text-white">
-      <div className="container-site pt-6 sm:pt-8 pb-10">
-        <h2 id="trusted-title" className="text-left font-semibold text-xl sm:text-2xl lg:text-[28px] mb-8">
+    <section aria-labelledby="trusted-title" className="relative z-[2] mt-[56px] text-white">
+      <div className="mx-auto w-full sm:w-[1440px] pl-[24px] pr-[120px] py-[40px] sm:px-[120px] sm:py-[56px] flex flex-col items-start gap-[30px]">
+        <h2 id="trusted-title" className="text-left text-white font-['Wix_Madefor_Display',_sans-serif] font-normal text-[16px] leading-[22px] sm:font-semibold sm:text-2xl lg:text-[28px]">
           Trusted by customers worldwide
         </h2>
-        <ul className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-8 lg:gap-12 items-center">
-          {logos.map((src, i) => (
-            <li key={i} className="relative h-8 sm:h-10 lg:h-12 grayscale opacity-80">
-              <Image src={src} alt="" fill className="object-contain" />
-            </li>
-          ))}
+        <ul className="w-full self-stretch grid grid-cols-3 justify-items-center gap-x-[12px] gap-y-[20px] sm:flex sm:flex-wrap md:flex-nowrap sm:justify-start items-center sm:gap-[14px]">
+          {logos.map((src, i) => {
+            const box = boxes[i]
+            return (
+              <li
+                key={i}
+                className="relative"
+                style={{
+                  width: `${box.w}px`,
+                  height: `${box.h}px`,
+                  flexShrink: 0,
+                  aspectRatio: i === 3 ? "84.64 / 23.92" : undefined,
+                }}
+              >
+                <div
+                  className="flex justify-center items-center"
+                  style={{
+                    paddingTop: `${box.p.t}px`,
+                    paddingRight: `${box.p.r}px`,
+                    paddingBottom: `${box.p.b}px`,
+                    paddingLeft: `${box.p.l}px`,
+                  }}
+                >
+                  {i === 1 ? (
+                    // Agoda as inline SVG sized exactly
+                    <svg xmlns="http://www.w3.org/2000/svg" width="75" height="38" viewBox="0 0 75 38" fill="none" className="w-full h-full">
+                      <g clipPath="url(#clip0_42005_1460)">
+                        <path d="M21.739 26.5977C18.7008 26.5977 16.23 29.0492 16.23 32.0627C16.23 35.0763 18.6996 37.5282 21.739 37.5282C24.7784 37.5282 27.2451 35.0763 27.2451 32.0627C27.2451 29.0492 24.7751 26.5977 21.739 26.5977Z" fill="white" />
+                        <path d="M6.34248 26.5977C3.30391 26.5977 0.833496 29.0508 0.833496 32.0627C0.833496 35.0747 3.30391 37.5282 6.34248 37.5282C9.38105 37.5282 11.8515 35.0763 11.8515 32.0627C11.8515 29.0492 9.38105 26.5977 6.34248 26.5977Z" fill="white" />
+                        <path d="M37.133 26.5977C34.0973 26.5977 31.624 29.0508 31.624 32.0627C31.624 35.0747 34.0973 37.5282 37.133 37.5282C40.1687 37.5282 42.642 35.0763 42.642 32.0627C42.642 29.0492 40.1708 26.5977 37.133 26.5977Z" fill="white" />
+                        <path d="M67.9226 26.5977C64.8849 26.5977 62.4141 29.0492 62.4141 32.0627C62.4141 35.0763 64.8849 37.5282 67.9226 37.5282C70.9604 37.5282 73.4316 35.0763 73.4316 32.0627C73.4316 29.0492 70.9604 26.5977 67.9226 26.5977Z" fill="white" />
+                        <path d="M52.5284 26.5986C49.4907 26.5986 47.019 29.0502 47.019 32.0633C47.019 35.0765 49.4903 37.5284 52.528 37.5284C55.5658 37.5284 58.0391 35.0773 58.0391 32.0633C58.0391 29.0494 55.5686 26.5986 52.5305 26.5986" fill="white" />
+                        <path d="M10.9344 11.1124C10.9344 8.55731 8.99049 6.62893 6.41485 6.62893C3.8392 6.62893 1.89533 8.55731 1.89533 11.1124C1.89533 13.6676 3.8392 15.5959 6.41485 15.5959C8.99049 15.5959 10.9344 13.6676 10.9344 11.1124ZM0 11.1124C0 7.56885 2.86727 4.89355 6.41485 4.89355C9.98649 4.89355 12.8297 7.54497 12.8297 11.0882V16.5362C12.8297 17.0906 12.4406 17.4762 11.8578 17.4762C11.25 17.4762 10.8858 17.0906 10.8858 16.5362V14.9449H10.7883C10.0354 16.2227 8.52879 17.3321 6.2933 17.3321C2.8428 17.3313 0 14.6799 0 11.1124Z" fill="white" />
+                        <path d="M26.2918 11.1126C26.2918 8.55748 24.3479 6.6291 21.7723 6.6291C19.1966 6.6291 17.2528 8.55748 17.2528 11.1126C17.2528 13.6677 19.1966 15.5961 21.7723 15.5961C24.3479 15.5961 26.2918 13.6677 26.2918 11.1126ZM17.836 21.3574C17.3258 21.1146 17.0827 20.6821 17.2772 20.1759C17.4718 19.6454 17.9575 19.429 18.4678 19.6697C19.4488 20.1264 20.5185 20.3651 21.6022 20.3689C24.4939 20.3689 26.2432 18.6574 26.2432 15.7409V14.9451H26.1462C25.3929 16.2228 23.8862 17.3323 21.6507 17.3323C18.2002 17.3323 15.3574 14.6809 15.3574 11.1134C15.3574 7.56982 18.2247 4.89453 21.7723 4.89453C25.3443 4.89453 28.1871 7.54595 28.1871 11.0891V15.6184C28.1871 19.5237 25.6584 22.1508 21.5292 22.1508C20.2648 22.1508 19.0004 21.908 17.836 21.3557" fill="white" />
+                        <path d="M41.6487 11.1124C41.6487 8.55731 39.7048 6.62893 37.1296 6.62893C34.5544 6.62893 32.6097 8.55731 32.6097 11.1124C32.6097 13.6676 34.5536 15.5959 37.1296 15.5959C39.7057 15.5959 41.6487 13.6676 41.6487 11.1124ZM30.7144 11.1124C30.7144 7.56885 33.5576 4.89355 37.1296 4.89355C40.7017 4.89355 43.5441 7.56885 43.5441 11.1124C43.5441 14.656 40.7013 17.3313 37.1296 17.3313C33.558 17.3313 30.7144 14.656 30.7144 11.1124Z" fill="white" />
+                        <path d="M57.0061 11.1122C57.0061 8.55713 55.0623 6.62875 52.487 6.62875C49.9118 6.62875 47.9671 8.55713 47.9671 11.1122C47.9671 13.6674 49.911 15.5957 52.487 15.5957C55.0631 15.5957 57.0061 13.6674 57.0061 11.1122ZM46.0718 11.1122C46.0718 7.56866 48.8905 4.89337 52.3651 4.89337C54.601 4.89337 56.1072 6.00201 56.8605 7.28058H56.9576V0.940317C56.9576 0.385595 57.3455 0 57.9295 0C58.5373 0 58.9015 0.385595 58.9015 0.940317V11.1365C58.9015 14.6801 56.0587 17.3315 52.487 17.3315C48.9386 17.3315 46.0718 14.6562 46.0718 11.1127" fill="white" />
+                        <path d="M72.364 11.1124C72.364 8.55731 70.4197 6.62893 67.8445 6.62893C65.2692 6.62893 63.3249 8.55731 63.3249 11.1124C63.3249 13.6676 65.2684 15.5959 67.8445 15.5959C70.4205 15.5959 72.364 13.6676 72.364 11.1124ZM61.4292 11.1124C61.4292 7.56885 64.2969 4.89355 67.8445 4.89355C71.4161 4.89355 74.2589 7.54497 74.2589 11.0882V16.5362C74.2589 17.0906 73.8702 17.4762 73.2874 17.4762C72.6797 17.4762 72.315 17.0906 72.315 16.5362V14.9449H72.218C71.4646 16.2227 69.9584 17.3321 67.7229 17.3321C64.2724 17.3321 61.4292 14.6807 61.4292 11.1132" fill="white" />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_42005_1460">
+                          <rect width="74.2586" height="37.5285" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  ) : (
+                    <Image src={src} alt="" fill className="object-contain" />
+                  )}
+                </div>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

@@ -26,13 +26,21 @@ const statsData = [
 export default function YesItSecurityRight({ className = "" }: YesItSecurityRightProps) {
   return (
     <div
-      className={`flex flex-col items-start justify-start w-[390px] px-6 pt-[60px] pb-[56px] gap-8 lg:w-auto lg:px-0 lg:pt-0 lg:pb-0 ${className}`}
+      className={`flex flex-col items-start w-[390px] px-6 pt-[60px] pb-[56px] gap-[32px]
+      lg:flex lg:flex-col lg:items-start lg:gap-[32px] lg:flex-[1_0_0]
+      lg:px-0 lg:pt-[100px] lg:pb-[56px]
+      ${className}`}
     >
       {/* Section Title */}
       <h2 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-medium text-[24px] leading-[32px] lg:text-[32px] lg:leading-[40px] w-full">
-        <span>Professional Cybersecurity</span>
-        <br />
-        <span>Service Provider</span>
+        {/* Mobile: 2 lines - "Professional Cybersecurity" / "Service Provider" */}
+        <span className="block lg:hidden">Professional Cybersecurity</span>
+        <span className="block lg:hidden">Service Provider</span>
+
+        {/* Desktop: keep existing layout */}
+        <span className="hidden lg:inline">Professional Cybersecurity Service</span>
+        <br className="hidden lg:block" />
+        <span className="hidden lg:inline">Provider</span>
       </h2>
 
       {/* Statistics List */}

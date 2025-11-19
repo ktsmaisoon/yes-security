@@ -30,7 +30,7 @@ const logoData = [
 export default function WhoTrustsUs({ className = "" }: WhoTrustsUsProps) {
   return (
     <section
-      className={`full-bleed relative pt-10 pb-16 md:py-20 bg-transparent md:bg-black overflow-hidden ${className}`}
+      className={`full-bleed relative pt-6 pb-16 md:py-20 bg-transparent md:bg-black overflow-hidden ${className}`}
       aria-label="Client testimonials and trusted companies"
     >
       {/* Background Decoration */}
@@ -46,7 +46,11 @@ export default function WhoTrustsUs({ className = "" }: WhoTrustsUsProps) {
         </div>
       </div>
 
-      <div className="container-site relative z-10 text-center lg:px-[120px] lg:pt-[80px] lg:pb-[100px]">
+      <div
+        className="container-site relative z-10 flex flex-col items-center justify-center gap-[28px] text-center
+        px-[24px] pt-[40px] pb-[50px]
+        lg:w-[1440px] lg:px-[120px] lg:pt-[80px] lg:pb-[100px]"
+      >
         {/* Heading */}
         <h2 className="text-[#e7e7f1] font-['Wix_Madefor_Display',_sans-serif] font-medium text-lg sm:text-xl lg:text-[20px] leading-relaxed lg:leading-[26px] mb-8 sm:mb-12 lg:mb-7">
           <span>They said Yes! to IT Security.</span>

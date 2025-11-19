@@ -63,11 +63,15 @@ export default function OurServiceCTA() {
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-white font-['Wix_Madefor_Display',_sans-serif] font-semibold text-3xl sm:text-4xl lg:text-[44px] leading-tight">
-            Ready to take your
-            <br />
-            data security
-            <br />
-            to the next level?
+            {/* Mobile: existing three-line layout */}
+            <span className="block lg:hidden">Ready to take your</span>
+            <span className="block lg:hidden">data security</span>
+            <span className="block lg:hidden">to the next level?</span>
+
+            {/* Desktop: two-line layout */}
+            <span className="hidden lg:inline">Ready to take your data security</span>
+            <br className="hidden lg:block" />
+            <span className="hidden lg:inline">to the next level?</span>
           </h2>
 
           <div className="mt-8 flex items-center justify-center gap-3 sm:gap-4">
