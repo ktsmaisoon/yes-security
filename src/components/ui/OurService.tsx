@@ -187,7 +187,7 @@ export default function OurService({ className = "", hideHeader = false, disable
                 />
 
                 {/* Header with Icon and Title */}
-                <div className="relative z-10 flex items-center gap-4 mb-6">
+                <div className="relative z-10 flex items-center gap-4 mb-6 min-h-[72px]">
                   <div className="relative w-12 h-12 flex-shrink-0">
                     <Image
                       src={service.icon}
@@ -201,7 +201,16 @@ export default function OurService({ className = "", hideHeader = false, disable
                     {service.title}
                   </h3>
                 </div>
-                <p className="relative z-10 text-gray-200 font-['Wix_Madefor_Display',_sans-serif] font-normal text-base leading-relaxed mb-6">
+                <p
+                  className="relative z-10 text-gray-200 font-['Wix_Madefor_Display',_sans-serif] font-normal text-base leading-relaxed mb-6"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitBoxOrient: "vertical" as const,
+                    WebkitLineClamp: 3,
+                    minHeight: "4.9rem",
+                    maxHeight: "4.9rem",
+                  }}
+                >
                   {service.description}
                 </p>
                 <Link
