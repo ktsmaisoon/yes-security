@@ -16,10 +16,22 @@ interface WhoTrustsUsProps {
   className?: string
 }
 
-const logoData = [
+interface LogoItem {
+  name: string
+  src: string
+  alt: string
+  className?: string
+}
+
+const logoData: LogoItem[] = [
   { name: "Singha", src: singhaLogo, alt: "Singha Corporation logo" },
   { name: "Jaguar", src: jaguarLogo, alt: "Jaguar logo" },
-  { name: "Agoda", src: agodaLogo, alt: "Agoda logo" },
+  {
+    name: "Agoda",
+    src: agodaLogo,
+    alt: "Agoda logo",
+    className: "lg:w-[135px]",
+  },
   { name: "Lazada", src: lazadaLogo, alt: "Lazada logo" },
   { name: "PTT", src: pttLogo, alt: "PTT logo" },
   { name: "Land Rover", src: landroverLogo, alt: "Land Rover logo" },
@@ -60,11 +72,11 @@ export default function WhoTrustsUs({ className = "" }: WhoTrustsUsProps) {
         </h2>
 
         {/* Logo Grid */}
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-12">
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-8">
           {logoData.map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
-              className="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 lg:w-[121px] lg:h-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100"
+              className={`flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 lg:w-[115px] lg:h-20 grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 ${logo.className ?? ""}`}
               role="img"
               aria-label={`${logo.name} company logo`}
             >
