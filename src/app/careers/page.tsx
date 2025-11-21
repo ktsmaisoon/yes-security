@@ -13,8 +13,8 @@ type Job = {
 };
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-// Mobile-first background (as requested)
-const bgHero = `${base}/assets/careers/careers-bg-mo.png`;
+const bgHeroDesktop = `${base}/assets/careers/careers-bg.png`;
+const bgHeroMobile = `${base}/assets/careers/careers-bg-mo.png`;
 const icoLocation = `${base}/assets/careers/location-ico.png`;
 const icoClock = `${base}/assets/careers/clock-ico.png`;
 const icoWork = `${base}/assets/careers/work-ico.png`;
@@ -74,38 +74,87 @@ export default function Careers() {
     <div className="min-h-screen bg-black text-white">
       <Header />
 
-      {/* Hero */}
+      {/* Hero + Jobs with shared background */}
+      {/* Mobile version with mobile background */}
       <section
-        className="full-bleed"
+        className="full-bleed sm:hidden"
         style={{
-          backgroundImage: `url(${bgHero})`,
+          backgroundImage: `url(${bgHeroMobile})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
         }}
       >
         <div className="container-site">
-          <div className="py-16 sm:py-24 lg:py-32">
-            <h1 className="text-center font-['Wix_Madefor_Display',_sans-serif] text-3xl font-semibold sm:text-5xl">
-              Careers
-            </h1>
-            <p className="mt-3 text-center text-white/80 text-sm sm:text-base">
-              Join the team shaping tomorrow's digital world.
-            </p>
+          <div
+            className="flex h-[524px] flex-shrink-0 flex-col items-center justify-center gap-10 px-6 self-stretch"
+          >
+            <div className="flex w-full max-w-[390px] flex-col items-center justify-center gap-10">
+              <h1 className="text-center font-['Wix_Madefor_Display',_sans-serif] text-[32px] leading-[40px] font-semibold sm:text-5xl sm:leading-[56px]">
+                Careers
+              </h1>
+              <p className="text-center text-white/80 text-[16px] leading-[22px] font-['Wix_Madefor_Display',_sans-serif] font-normal sm:text-base sm:leading-6">
+                <span className="block sm:inline">
+                  Join&nbsp;the&nbsp;team&nbsp;shaping
+                </span>
+                <span className="block sm:inline">
+                  {" "}tomorrow's&nbsp;digital&nbsp;world.
+                </span>
+              </p>
+            </div>
           </div>
+
+          {/* Jobs list */}
+          <main>
+            <div className="flex flex-col items-center self-stretch gap-5 px-5 pt-[50px] pb-[100px]">
+              <div className="w-full max-w-5xl">
+                {jobs.map((job) => (
+                  <JobCard key={job.title} job={job} />
+                ))}
+              </div>
+            </div>
+          </main>
         </div>
       </section>
 
-      {/* Jobs list */}
-      <main>
+      {/* Desktop version with original background */}
+      <section
+        className="full-bleed hidden sm:block"
+        style={{
+          backgroundImage: `url(${bgHeroDesktop})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
         <div className="container-site">
-          <div className="mx-auto max-w-5xl space-y-3 py-6 sm:space-y-4 sm:py-10">
-            {jobs.map((job) => (
-              <JobCard key={job.title} job={job} />
-            ))}
+          {/* Hero */}
+          <div className="flex h-[524px] flex-shrink-0 flex-col items-center justify-center gap-10 px-[120px]">
+            <div className="flex w-[1200px] max-w-full flex-col items-center justify-center gap-10">
+              <h1 className="text-center font-['Wix_Madefor_Display',_sans-serif] text-[32px] leading-[40px] font-semibold sm:text-5xl sm:leading-[56px]">
+                Careers
+              </h1>
+              <p className="text-center text-white/80 text-[16px] leading-[22px] font-['Wix_Madefor_Display',_sans-serif] font-normal sm:text-base sm:leading-6">
+                <span className="block sm:inline">
+                  Join&nbsp;the&nbsp;team&nbsp;shaping
+                </span>
+                <span className="block sm:inline">
+                  {" "}tomorrow's&nbsp;digital&nbsp;world.
+                </span>
+              </p>
+            </div>
           </div>
+
+          {/* Jobs list */}
+          <main>
+            <div className="mx-auto max-w-5xl space-y-3 pb-10 sm:space-y-4 sm:pb-14">
+              {jobs.map((job) => (
+                <JobCard key={job.title} job={job} />
+              ))}
+            </div>
+          </main>
         </div>
-      </main>
+      </section>
 
       <Footer />
     </div>

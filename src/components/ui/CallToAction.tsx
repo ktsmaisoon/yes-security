@@ -59,7 +59,7 @@ export default function CallToAction({ className = "" }: CallToActionProps) {
               aria-label="Contact us"
               className="w-[122px] h-[36px] bg-[#3eff51] text-black font-['Wix_Madefor_Display',_sans-serif] font-semibold text-base rounded-[41px] 
              border-2 border-transparent hover:bg-black hover:text-[#3eff51] hover:border-[#3eff51] transition-colors duration-300 
-             focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-black inline-flex items-center justify-center text-center"
+             focus:outline-none inline-flex items-center justify-center text-center"
             >
               Contact Us
             </a>

@@ -57,9 +57,30 @@ export default function Page() {
           <TrustedBy />
           <PenetrationTestingIntro />
           <PenetrationTestingWhatIs />
-          <PenetrationTestingWhy />
-          <PenetrationTestingTypes />
-          <PenetrationTestingKeyFeatures />
+
+          {/* Mobile-only shared background for Why + Types + KeyFeatures */}
+          <div className="relative isolate sm:hidden mx-auto w-[390px] min-h-[1150px] pb-6">
+            {/* Background */}
+            <div
+              aria-hidden
+              className="absolute left-1/2 top-0 -z-10 flex w-[390px] h-[952px] -translate-x-1/2 -translate-y-[-530px] flex-col items-center pointer-events-none bg-cover bg-no-repeat"
+              style={{ backgroundImage: `url(${base}/assets/bg/penetrationtesting-bg5.png)` }}
+            />
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center">
+              <PenetrationTestingWhy />
+              <PenetrationTestingTypes />
+              <PenetrationTestingKeyFeatures />
+            </div>
+          </div>
+
+          {/* Desktop render: render normally without mobile wrapper */}
+          <div className="hidden sm:block">
+            <PenetrationTestingWhy />
+            <PenetrationTestingTypes />
+            <PenetrationTestingKeyFeatures />
+          </div>
+
           <PenetrationTestingExpect />
           <PenetrationTestingFaqs />
           <PenetrationTestingContact />

@@ -11,27 +11,27 @@ export default function PenetrationTestingExpect() {
 
   return (
     <section aria-labelledby="pt-expect" className="text-white">
-      <div className="mx-auto w-[1440px] px-0 py-[100px] flex flex-col items-center gap-[40px]">
+      <div className="mx-auto w-full px-[24px] py-[50px] flex flex-col items-center gap-[40px] sm:w-[1440px] sm:px-0 sm:py-[100px]">
         <div
-          className="mx-auto w-[1200px] px-[60px] py-0 flex items-center gap-[15px] rounded-[20px] border border-[#393939] overflow-hidden"
+          className="mx-auto w-full px-[24px] py-0 flex flex-col justify-center items-start gap-[15px] rounded-[20px] border border-[#393939] overflow-hidden sm:w-[1200px] sm:px-[60px] sm:flex-row sm:items-center"
           style={{
-            backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 2.4%, rgba(0, 0, 0, 0.60) 32.9%), url(${base}/assets/penetration/PenetrationTestingWhy-bg.png)`,
-            backgroundPosition: '50% 50%',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
+            background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 2.4%, rgba(0, 0, 0, 0.60) 32.9%), url(${base}/assets/penetration/PenetrationTestingWhy-bg.png) lightgray 50% / cover no-repeat`,
           }}
         >
           {/* Content */}
-          <div className="w-full py-[42px] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="w-full py-[42px] flex flex-col justify-center items-start gap-[15px] sm:grid sm:grid-cols-2 sm:gap-8 lg:gap-12 sm:items-start">
             {/* Left heading */}
             <div className="self-stretch">
               <h2
                 id="pt-expect"
-                className="font-['Wix_Madefor_Display',_sans-serif] not-italic font-semibold text-[48px] leading-[58px] max-w-[14ch] text-white"
+                className="font-['Wix_Madefor_Display',_sans-serif] not-italic text-white font-medium text-[24px] leading-[32px] sm:font-semibold sm:text-[48px] sm:leading-[58px] sm:max-w-[14ch]"
               >
                 What You Can
                 <br className="hidden sm:block" />
-                Expect from
+                <span className="sm:hidden"> </span>
+                Expect{" "}
+                <br className="sm:hidden" />
+                from{" "}
                 <br className="hidden sm:block" />
                 Partnering with Us
               </h2>
@@ -42,7 +42,7 @@ export default function PenetrationTestingExpect() {
               <ul className="flex flex-col gap-[15px] self-stretch" role="list">
                 {items.map((text, i) => (
                   <li key={i}>
-                    <div className="flex h-[104px] px-12 justify-start items-center gap-[10px] w-full rounded-[96px] border border-[#5E5E5E] bg-[rgba(0,0,0,0.90)] text-white text-left">
+                    <div className="flex h-[100px] px-12 justify-start items-center gap-[10px] w-full self-stretch rounded-[96px] border border-[#5E5E5E] bg-[rgba(0,0,0,0.90)] text-white text-left sm:h-[104px] sm:justify-start sm:text-left">
                       {text}
                     </div>
                   </li>

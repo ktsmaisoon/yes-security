@@ -7,7 +7,7 @@ export default function PenetrationTestingWhy() {
   ]
 
   return (
-    <section aria-labelledby="pt-why" className="text-white">
+    <section aria-labelledby="pt-why" className="text-white mt-[40px] sm:mt-0">
       <div className="mx-auto w-full px-[24px] py-[56px] flex flex-col items-start gap-[40px] sm:w-[1440px] sm:px-[120px] sm:py-[56px] sm:flex-row sm:gap-[42px]">
         <div className="flex flex-col items-start gap-[40px] flex-1 sm:flex-row sm:gap-[42px]">
           {/* Left: Heading + Paragraph */}
@@ -29,7 +29,7 @@ export default function PenetrationTestingWhy() {
           <ul className="flex flex-col items-start gap-[30px] flex-[1_0_0] self-stretch sm:w-[570px] sm:gap-[26px] sm:mt-[8px]" role="list">
             {points.map((text, i) => (
               <li key={i} className="flex items-center">
-                <div className="flex h-[69px] px-[21px] py-0 flex-col justify-between items-start self-stretch border-l-[9px] border-[#00FF59] bg-[#000000] sm:justify-center">
+                <div className="flex h-[69px] px-[21px] py-0 flex-col justify-center items-start self-stretch border-l-[9px] border-[#00FF59] bg-[#000000] sm:justify-center">
                   <p className="text-white font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal sm:text-white/90 sm:leading-relaxed">{text}</p>
                 </div>
               </li>

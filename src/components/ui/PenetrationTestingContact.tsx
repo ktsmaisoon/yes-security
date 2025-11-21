@@ -1,6 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Image from "next/image";
+
+const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function PenetrationTestingContact() {
   const [loading, setLoading] = useState(false);
@@ -34,20 +37,40 @@ export default function PenetrationTestingContact() {
   };
 
   return (
-    <section aria-labelledby="pt-contact" className="text-white">
-      <div className="mx-auto w-[1440px] px-[120px] py-0">
-        <div className="mx-auto w-[1200px] py-[80px] flex justify-between items-start">
+    <section aria-labelledby="pt-contact" className="relative text-white">
+      {/* Mobile background */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 sm:hidden">
+        <Image
+          src={`${base}/assets/bg/penetrationtesting-bg4.png`}
+          alt=""
+          fill
+          priority
+          className="object-cover object-[90%_-42%] select-none"
+          sizes="100vw"
+        />
+      </div>
+      {/* Content above background */}
+      <div className="relative z-10 mx-auto w-full px-[24px] pt-[40px] pb-[80px] flex flex-col items-start gap-[50px] sm:w-[1440px] sm:px-[120px] sm:pt-0 sm:pb-0">
+        <div className="mx-auto w-full flex flex-col items-start gap-[50px] sm:w-[1200px] sm:py-[80px] sm:flex-row sm:justify-between sm:items-start">
           {/* Left intro */}
           <div className="flex flex-col items-start gap-[12px] flex-[1_0_0]">
             <h2
               id="pt-contact"
-              className="text-[#3EFF51] text-center font-['Wix_Madefor_Display',_sans-serif] not-italic font-semibold text-[48px] leading-[58px]"
+              className="text-[#3EFF51] text-left sm:text-left font-['Wix_Madefor_Display',_sans-serif] not-italic font-medium text-[24px] leading-[32px] sm:font-semibold sm:text-[48px] sm:leading-[58px] w-full"
             >
               Contact Form
             </h2>
-            <p className="w-[494px] text-white font-['Wix_Madefor_Display',_sans-serif] text-[18px] font-normal">
-              If you’re looking for a partner who understands your environment and can
-              strengthen your defenses, Yes Cybersecurity is ready to help.
+            <p className="w-full sm:w-[494px] text-left text-white font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">
+              <span className="sm:hidden">
+                If you’re looking for a partner who understands your environment and can strengthen your defenses, Yes Cybersecurity is ready to help.
+              </span>
+              <span className="hidden sm:block">
+                If you’re looking for a partner who understands your
+                <br />
+                environment and can strengthen your defenses, Yes
+                <br />
+                Cybersecurity is ready to help.
+              </span>
             </p>
           </div>
 
@@ -129,14 +152,14 @@ export default function PenetrationTestingContact() {
                   defaultValue=""
                   className="w-full h-[48px] appearance-none rounded-full border border-[#D2D2D2] bg-[rgba(255,255,255,0.90)] pl-[16px] pr-[36px] py-[10px] text-[#656565] font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal outline-none"
                 >
-                  <option value="" disabled className="text-black">
+                  <option value="" disabled className="text-black font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">
                     Type of system to be tested
                   </option>
-                  <option value="web">Web Application</option>
-                  <option value="mobile">Mobile Application</option>
-                  <option value="network">Network / Infrastructure</option>
-                  <option value="cloud">Cloud</option>
-                  <option value="other">Other</option>
+                  <option value="web" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">Web Application</option>
+                  <option value="mobile" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">Mobile Application</option>
+                  <option value="network" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">Network / Infrastructure</option>
+                  <option value="cloud" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">Cloud</option>
+                  <option value="other" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">Other</option>
                 </select>
                 <svg aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 4.5L6 7.5L9 4.5" stroke="#656565" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -151,12 +174,12 @@ export default function PenetrationTestingContact() {
                   defaultValue=""
                   className="w-full h-[48px] appearance-none rounded-full border border-[#D2D2D2] bg-[rgba(255,255,255,0.90)] pl-[16px] pr-[48px] py-[10px] text-[#656565] font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal outline-none"
                 >
-                  <option value="" disabled className="text-black">
+                  <option value="" disabled className="text-black font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal md:text-md md:leading-md">
                     Budget
                   </option>
-                  <option value="<5k">Under $5k</option>
-                  <option value="5-15k">$5k – $15k</option>
-                  <option value=">15k">Above $15k</option>
+                  <option value="<5k" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal md:text-md md:leading-md">Under $5k</option>
+                  <option value="5-15k" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal md:text-md md:leading-md">$5k – $15k</option>
+                  <option value=">15k" className="font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal md:text-md md:leading-md">Above $15k</option>
                 </select>
                 <span aria-hidden className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 text-[#C70000] font-['Wix_Madefor_Display',_sans-serif] text-[16px] leading-[22px] font-normal">*</span>
                 <svg aria-hidden className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -189,7 +212,7 @@ export default function PenetrationTestingContact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-full bg-[#35EF5B] text-black font-medium py-3.5 hover:brightness-95 transition disabled:opacity-50"
+                  className="w-full h-[48px] px-[24px] py-[10px] rounded-full bg-[#3EFF51] text-black font-['Wix_Madefor_Display',_sans-serif] text-[20px] leading-[26px] font-medium hover:brightness-95 transition disabled:opacity-50"
                 >
                   {loading ? "Sending…" : "Submit your request"}
                 </button>

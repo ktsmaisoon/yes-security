@@ -34,7 +34,7 @@ export default function YesItSecurityLeft({ className = "" }: YesItSecurityLeftP
         aria-label="Request a free cybersecurity consultation"
         className="w-[173px] h-[36px] bg-[#3eff51] text-[#000000] font-['Wix_Madefor_Display',_sans-serif] font-semibold text-base rounded-[41px] 
              border-2 border-transparent hover:bg-[#000000] hover:text-[#3eff51] hover:border-[#3eff51] transition-colors duration-300 
-             focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-[#000000] inline-flex items-center justify-center text-center"
+             focus:outline-none inline-flex items-center justify-center text-center"
       >
         Free Consultation
       </button>

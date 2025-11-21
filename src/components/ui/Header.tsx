@@ -47,7 +47,7 @@ export default function Header() {
   const navLinks = getNavLinks();
 
   return (
-    <header className="full-bleed bg-[#000c39] text-white relative z-[100]" role="banner">
+    <header className="bg-[#000c39] text-white fixed top-0 inset-x-0 z-[100] w-full" role="banner">
       <nav className="w-full py-2.5" role="navigation" aria-label="Main navigation">
         <div className="container-site">
           {/* Main Header Bar */}
@@ -96,7 +96,7 @@ export default function Header() {
                   href={navLinks.contact}
                   className="bg-[#3eff51] text-[#000c39] font-['Wix_Madefor_Display',_sans-serif] font-semibold text-base w-[120px] h-[36px] rounded-[41px] flex items-center justify-center 
              border-2 border-transparent hover:bg-[#000c39] hover:text-[#3eff51] hover:border-[#3eff51] transition-colors 
-             focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-[#000c39]"
+             focus:outline-none"
                   aria-label="Contact us"
                 >
                   Contact us
@@ -231,7 +231,7 @@ export default function Header() {
                     href={navLinks.contact}
                     className="w-[122px] h-[36px] bg-[#3eff51] text-[#000000] font-['Wix_Madefor_Display',_sans-serif] font-semibold text-base rounded-[41px] 
              border-2 border-transparent hover:bg-[#000000] hover:text-[#3eff51] hover:border-[#3eff51] transition-colors duration-300 
-             focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-[#000000] inline-flex items-center justify-center text-center"
+             focus:outline-none inline-flex items-center justify-center text-center"
                     role="menuitem"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

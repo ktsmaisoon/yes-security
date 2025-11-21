@@ -52,7 +52,7 @@ export default function OurBlog({ className = "" }: OurBlogProps) {
               aria-label="View all blog posts"
               className="w-[97px] h-[36px] bg-[#3eff51] text-black font-['Wix_Madefor_Display',_sans-serif] font-semibold text-base rounded-[41px] flex items-center justify-center
                border-2 border-transparent hover:bg-black hover:text-[#3eff51] hover:border-[#3eff51] transition-colors duration-300 
-               focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-black"
+               focus:outline-none"
             >
               View All
             </button>

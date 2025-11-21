@@ -4,7 +4,7 @@ const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 export default function PenetrationTestingBanner() {
   return (
     <section
-      className="full-bleed relative overflow-hidden bg-transparent pt-[120px] pb-[60px] sm:py-24 lg:py-28"
+      className="full-bleed relative overflow-hidden bg-transparent flex flex-col justify-center items-start self-stretch pt-[120px] pb-[60px] sm:block sm:py-24 lg:py-28"
       aria-label="Penetration Testing banner"
     >
       {/* Optional left gradient to improve text contrast */}

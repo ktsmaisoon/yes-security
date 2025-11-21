@@ -83,7 +83,7 @@ export default function OurServiceCTA() {
             </a>
             <a
               href="/contact-us"
-              className="flex h-[36px] items-center justify-center gap-[10px] px-[18px] py-[14px] rounded-[41px] bg-[#3eff51] text-black font-['Wix_Madefor_Display',_sans-serif] font-semibold text-[16px] leading-[22px] border-2 border-transparent hover:bg-black hover:text-[#3eff51] hover:border-[#3eff51] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-black"
+              className="flex h-[36px] items-center justify-center gap-[10px] px-[18px] py-[14px] rounded-[41px] bg-[#3eff51] text-black font-['Wix_Madefor_Display',_sans-serif] font-semibold text-[16px] leading-[22px] border-2 border-transparent hover:bg-black hover:text-[#3eff51] hover:border-[#3eff51] transition-colors duration-300 focus:outline-none"
             >
               Contact Us
             </a>

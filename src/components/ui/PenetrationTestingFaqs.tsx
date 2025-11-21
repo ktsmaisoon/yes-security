@@ -57,10 +57,10 @@ export default function PenetrationTestingFaqs() {
         backgroundSize: 'cover',
       }}
     >
-      <div className="mx-auto w-[1440px] px-[120px] py-[100px] flex flex-col items-center gap-[40px]">
+      <div className="mx-auto w-full px-[24px] py-[50px] flex flex-col items-center gap-[40px] sm:w-[1440px] sm:px-[120px] sm:py-[100px]">
         <h2
           id="pt-faqs"
-          className="text-white text-center font-['Wix_Madefor_Display',_sans-serif] not-italic font-semibold text-[56px] leading-[77px]"
+          className="text-white text-center font-['Wix_Madefor_Display',_sans-serif] not-italic font-medium text-[24px] leading-[32px] sm:font-semibold sm:text-[56px] sm:leading-[77px]"
         >
           FAQs
         </h2>
@@ -70,7 +70,7 @@ export default function PenetrationTestingFaqs() {
           {faqs.map((item, i) => (
             <details
               key={i}
-              className="group flex flex-col w-[568px] px-[30px] py-[10px] justify-center group-open:justify-start items-start gap-3 group-open:gap-6 rounded-[10px] border border-[#6B6B6B] bg-black"
+              className="group flex flex-col self-stretch w-full px-[30px] py-[10px] justify-center group-open:justify-start items-start gap-0 group-open:gap-[20px] rounded-[10px] border border-[#6B6B6B] bg-black sm:self-auto sm:w-[568px] sm:gap-3 sm:group-open:gap-6 sm:group-open:justify-start"
               onMouseEnter={(e) => {
                 if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
                   const el = e.currentTarget as HTMLDetailsElement & { dataset: { prevOpen?: string } }
@@ -88,7 +88,7 @@ export default function PenetrationTestingFaqs() {
                 }
               }}
             >
-              <summary className="flex items-center gap-3 cursor-pointer list-none">
+              <summary className="flex w-full items-center gap-3 cursor-pointer list-none py-[14px] sm:py-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 12 12"

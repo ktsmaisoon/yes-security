@@ -78,29 +78,29 @@ export default function PenetrationTestingTypes() {
 
   return (
     <section aria-labelledby="pt-types" className="relative text-white">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[calc(100%+400px)]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[calc(100%+400px)] hidden sm:block">
         <Image src={sectionBg} alt="" fill className="object-cover object-[center_100%] -translate-y-4 md:-translate-y-8" />
       </div>
-      <div className="mx-auto w-[1440px] px-[120px] py-[100px] flex flex-col items-start gap-[40px]">
+      <div className="mx-auto w-full px-[24px] pt-0 pb-[50px] flex flex-col items-start gap-[40px] sm:w-[1440px] sm:px-[120px] sm:py-[100px]">
         <h2
           id="pt-types"
-          className="font-['Wix_Madefor_Display',_sans-serif] not-italic font-semibold text-[28px] leading-[38px] sm:text-[32px] sm:leading-[42px] lg:text-[36px] lg:leading-[50px] mb-6"
+          className="font-['Wix_Madefor_Display',_sans-serif] not-italic text-white font-medium text-[24px] leading-[32px] sm:font-semibold sm:text-[32px] sm:leading-[42px] lg:text-[36px] lg:leading-[50px] mb-6"
         >
-          What types of Penetration
-          <br className="hidden sm:block" />
-          Testing services do we offer?
+          <span className="hidden sm:inline">What types of Penetration<br />Testing services do we offer?</span>
+          <span className="block sm:hidden">What types of Penetration</span>
+          <span className="block sm:hidden">Testing services do we offer?</span>
         </h2>
 
         {/* Slider - continuous marquee */}
         <div
           ref={containerRef}
-          className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden h-[260px] sm:h-[280px] lg:h-[300px]"
+          className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden h-[210px] sm:h-[280px] lg:h-[300px]"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
           <div ref={trackRef} className="absolute left-0 top-0 flex gap-4 sm:gap-6 will-change-transform">
             {[...items, ...items].map((it, i) => (
-              <div key={i} className="shrink-0 w-[80%] sm:w-[48%] lg:w-[360px]">
+              <div key={i} className="shrink-0 w-[342px] sm:w-[48%] lg:w-[360px]">
                 <Card title={it.title} bg={it.bg} icon={it.ico} />
               </div>
             ))}
@@ -112,16 +112,16 @@ export default function PenetrationTestingTypes() {
 
   function Card({ title, bg, icon }: { title: string; bg: string; icon: string }) {
     return (
-      <div className="relative h-[260px] sm:h-[280px] lg:h-[300px] rounded-2xl border border-white/20 overflow-hidden bg-black/40 shadow-[0_6px_24px_rgba(0,0,0,0.35)]">
+      <div className="relative h-[193px] sm:h-[280px] lg:h-[300px] rounded-2xl border border-white/20 overflow-hidden bg-black/40 shadow-[0_6px_24px_rgba(0,0,0,0.35)]">
         {/* Background */}
         <Image src={bg} alt="" fill className="object-cover opacity-100" />
         {/* Gradient overlay for readability */}
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_100%)]" />
 
         {/* Content */}
-        <div className="relative h-full w-full px-6 py-8 flex flex-col items-center justify-center text-center gap-[37px]">
+        <div className="relative h-full w-full px-[38px] py-[40px] flex flex-col items-start justify-center text-left gap-[44px] sm:items-center sm:text-center sm:gap-[37px] sm:px-6 sm:py-8">
           <Image src={icon} alt="" width={80} height={80} className="opacity-100 shrink-0 block" />
-          <p className="text-base sm:text-lg lg:text-xl font-medium text-white tracking-[0.2px] whitespace-pre-line leading-tight text-center flex justify-center items-start h-[52px] sm:h-[60px] lg:h-[68px]">
+          <p className="text-base sm:text-lg lg:text-xl font-medium text-white tracking-[0.2px] whitespace-pre-line leading-tight text-left sm:text-center flex justify-start sm:justify-center items-start h-[52px] sm:h-[60px] lg:h-[68px]">
             {title}
           </p>
         </div>

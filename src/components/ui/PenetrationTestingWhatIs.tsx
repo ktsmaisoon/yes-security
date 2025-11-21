@@ -15,7 +15,7 @@ export default function PenetrationTestingWhatIs() {
 
     return (
         <section aria-labelledby="pt-what" className="text-white">
-            <div className="mx-auto w-full sm:w-[1440px] px-[24px] pt-[56px] pb-0 sm:px-[120px] sm:py-[56px] flex flex-col sm:flex-row items-start gap-[42px]">
+            <div className="mx-auto w-full sm:w-[1440px] px-[24px] pt-[56px] pb-0 sm:px-[120px] sm:py-[56px] flex flex-col sm:flex-row items-start gap-[-20px] sm:gap-[42px]">
                 {/* Left: Title / Description / Icons */}
                 <div className="flex-1">
                     <h2 id="pt-what" className="font-['Wix_Madefor_Display',_sans-serif] text-white font-medium text-[24px] leading-[32px] sm:font-semibold sm:text-[36px] sm:leading-[50px] mb-4">
@@ -67,7 +67,7 @@ export default function PenetrationTestingWhatIs() {
                         alt="Penetration testing illustration"
                         width={517}
                         height={410}
-                        className="object-contain relative top-[50px]"
+                        className="object-contain relative top-[24px] sm:top-[-10px]"
                         priority
                     />
                 </div>

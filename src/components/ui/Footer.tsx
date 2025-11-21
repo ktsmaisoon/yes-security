@@ -185,7 +185,7 @@ export default function Footer({ className = "" }: FooterProps) {
                 type="submit"
                 className="w-[131px] h-[36px] bg-[#3eff51] text-[#000c39] px-4 rounded-[41px] font-['Wix_Madefor_Display',_sans-serif] font-semibold text-base 
              border-2 border-transparent hover:bg-[#000c39] hover:text-[#3eff51] hover:border-[#3eff51] transition-colors 
-             focus:outline-none focus:ring-2 focus:ring-[#3eff51] focus:ring-offset-2 focus:ring-offset-[#000c39] whitespace-nowrap"
+             focus:outline-none whitespace-nowrap"
               >
                 Get in Touch
               </button>

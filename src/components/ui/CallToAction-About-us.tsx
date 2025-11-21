@@ -99,7 +99,7 @@ export default function CallToActionAboutUs({ className = "", children }: CallTo
     border-2 border-transparent
     transition-colors duration-300
     hover:bg-[#000000] hover:text-[#3EFF51] hover:border-[#3EFF51]
-    focus:outline-none focus:ring-2 focus:ring-[#3EFF51] focus:ring-offset-2 focus:ring-offset-[#000000]
+    focus:outline-none
   "
               aria-label="Contact us"
             >
