@@ -34,7 +34,7 @@ export default function YesItSecurityAboutUs({ className = "" }: YesItSecurityAb
     lg:text-[36px]
     lg:leading-[38px]
     bg-gradient-to-r from-[#3EFF51] to-white
-    bg-clip-text text-transparent
+    bg-clip-text text-transparent lg:text-white
     whitespace-nowrap
   "
               >

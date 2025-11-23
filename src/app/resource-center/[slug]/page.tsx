@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       {/* Desktop: full-page background wrapper */}
       <main className="hidden lg:flex justify-center bg-black text-white">
         <div
-          className="flex flex-col items-center w-[1440px] min-h-screen pb-24"
+          className="flex flex-col items-center w-[1440px] min-h-screen pb-0"
           style={{
             backgroundImage: `url(${bgDetailDesktop})`,
             backgroundSize: "cover",

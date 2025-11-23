@@ -30,7 +30,7 @@ const logoData: LogoItem[] = [
     name: "Agoda",
     src: agodaLogo,
     alt: "Agoda logo",
-    className: "lg:w-[135px]",
+    className: "lg:w-[150px]",
   },
   { name: "Lazada", src: lazadaLogo, alt: "Lazada logo" },
   { name: "PTT", src: pttLogo, alt: "PTT logo" },

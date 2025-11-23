@@ -44,7 +44,7 @@ export default function ResourceCenterInsights() {
   const basePrefix = isThaiRoute ? '/th' : '';
 
   return (
-    <section aria-labelledby="rc-insights" className="text-white">
+    <section aria-labelledby="rc-insights" className="text-white h-[4800px] sm:h-auto sm:min-h-[1800px]">
       <div className="w-full flex justify-center">
         <div
           className="

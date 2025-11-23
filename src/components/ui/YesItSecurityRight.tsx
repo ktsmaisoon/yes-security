@@ -26,7 +26,7 @@ const statsData = [
 export default function YesItSecurityRight({ className = "" }: YesItSecurityRightProps) {
   return (
     <div
-      className={`flex flex-col items-start w-[390px] px-6 pt-[60px] pb-[56px] gap-[32px]
+      className={`flex flex-col items-start w-[390px] px-6 pt-[40px] pb-[56px] gap-[32px]
       lg:flex lg:flex-col lg:items-start lg:gap-[32px] lg:flex-[1_0_0]
       lg:px-0 lg:pt-[100px] lg:pb-[56px]
       ${className}`}

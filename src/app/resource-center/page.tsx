@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <Header />
-      <main className="flex-1 pb-24 sm:pb-32">
+      <main className="flex-1 pb-24 sm:pb-32px">
         {/* Mobile */}
         <div className="block sm:hidden w-full flex flex-col items-center">
           {/* BG Image wrapper */}
@@ -54,7 +54,7 @@ export default function Page() {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="w-full flex justify-center py-16">
+          <div className="w-full flex justify-center py-10">
             <div className="w-full max-w-[1440px]">
               <ResourceCenterBanner />
               <ResourceCenterInsights />
@@ -63,9 +63,11 @@ export default function Page() {
         </div>
 
         {/* CTA is separate, no shared background */}
-        <ResourceCenterCTA />
+        <div className="sm:mt-8 lg:mt-2">
+          <ResourceCenterCTA />
+        </div>
       </main>
-      <Footer className="mt-10 sm:mt-16" />
+      <Footer className="mt-10 sm:mt-2" />
     </div>
   );
 }

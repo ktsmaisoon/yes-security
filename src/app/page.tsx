@@ -26,33 +26,33 @@ export default function Home() {
         />
 
         <div className="relative z-[1] flex flex-col">
-          <WhoTrustsUs />
-          <YesItSecurity className="pt-8" />
+          <WhoTrustsUs className="-mt-24" />
+          <YesItSecurity className="pt-0 -mt-14" />
         </div>
       </div>
 
       {/* Desktop: WhoTrustsUs without mobile background */}
       <div className="hidden md:block">
-        <WhoTrustsUs />
+        <WhoTrustsUs className="-mt-24" />
       </div>
 
       {/* Desktop-only background between YesItSecurity and OurService */}
       <div className="relative hidden md:block bg-black">
         <div
-          className="absolute inset-x-0 top-[525px] h-[700px] bg-cover bg-top bg-no-repeat"
+          className="absolute inset-x-0 top-[250px] h-[700px] bg-cover bg-top bg-no-repeat"
           style={{ backgroundImage: "url(/assets/bg/mainpage-bg.png)", backgroundPosition: "center -80px" }}
           aria-hidden="true"
         />
         <div className="relative z-[1] flex flex-col">
-          <YesItSecurity />
-          <OurService disableBackground />
+          <YesItSecurity className="-mt-42" />
+          <OurService className="-mt-24" disableBackground />
         </div>
       </div>
 
       {/* Section 4: Our Services (mobile) */}
-      <OurService className="md:hidden" disableBackground />
+      <OurService className="md:hidden -mt-12" disableBackground />
       <OurBlog className="lg:pt-0" />
-      <CallToAction />
+      <CallToAction className="lg:-mt-20" />
       <Footer />
     </div>
   );

@@ -53,7 +53,9 @@ export default function Page() {
 
         {/* Content above background */}
         <div className="relative z-10">
-          <PenetrationTestingBanner />
+          <div className="mt-14 lg:mt-14">
+            <PenetrationTestingBanner />
+          </div>
           <TrustedBy />
           <PenetrationTestingIntro />
           <PenetrationTestingWhatIs />

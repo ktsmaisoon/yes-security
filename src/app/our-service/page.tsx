@@ -9,9 +9,11 @@ export default function OurServicePage() {
     <div className="min-h-screen bg-black">
       <Header />
       <main>
-        <OurServiceBanner />
+        <div className="mt-16 lg:mt-0">
+          <OurServiceBanner />
+        </div>
         {/* Section 2: All Services */}
-        <OurService className="py-16" hideHeader />
+        <OurService className="py-16 -mt-12 lg:mt-0" hideHeader />
         <OurServiceCTA />
       </main>
       <Footer />

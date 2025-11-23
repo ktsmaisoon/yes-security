@@ -223,7 +223,7 @@ export default function AboutUs() {
           </section>
 
           <section aria-labelledby="trust-building-heading" className="sm:hidden">
-            <CallToActionAboutUs>
+            <CallToActionAboutUs className="-mt-16">
               <TrustBuilding className="bg-transparent sm:bg-transparent" />
             </CallToActionAboutUs>
           </section>

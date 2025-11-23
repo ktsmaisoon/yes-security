@@ -4,23 +4,23 @@ import Link from "next/link";
 
 export default function ResourceCenterCTA() {
   return (
-    <section aria-labelledby="rc-cta" className="text-white pb-[-20] sm:pb-16 lg:pb-12">
+    <section aria-labelledby="rc-cta" className="text-white sm:pb-0 lg:pb-0 sm:mt-0 lg:mt-0">
       {/* Mobile CTA with dedicated background image */}
       <div className="block sm:hidden w-full flex justify-center relative">
-        <div className="relative w-full max-w-[390px] h-[600px] z-10 top-[-500px]">
+        <div className="relative w-full max-w-[390px] h-[600px] z-10 top-[200px]">
           {/* Background image */}
           <div className="absolute inset-0">
             <Image
               src={`${base}/assets/resource-center/resource-center-bg5.png`}
               alt="Resource Center CTA Mobile BG"
               fill
-              className="object-cover"
+              className="object-contain scale-110"
               priority
             />
           </div>
 
           {/* Content: เลื่อนขึ้นด้วย absolute */}
-          <div className="absolute top-[200px] left-0 w-full px-6 flex flex-col items-center justify-start text-center z-20">
+          <div className="absolute top-[240px] left-0 w-full px-6 flex flex-col items-center justify-start text-center z-20">
             <h2
               id="rc-cta"
               className="font-['Wix_Madefor_Display',_sans-serif] not-italic font-medium text-[32px] leading-[40px] drop-shadow-[0_6px_28px_rgba(0,0,0,0.6)]"
@@ -51,10 +51,10 @@ export default function ResourceCenterCTA() {
 
       {/* Desktop / tablet CTA (unchanged layout) */}
       <div className="hidden sm:flex w-full justify-center">
-        <div className="w-full max-w-[390px] px-6 pt-[60px] pb-[120px] sm:max-w-none sm:px-[120px] sm:pt-10 sm:pb-16 lg:px-0 lg:pt-0 lg:pb-0 flex flex-col items-center gap-10">
+        <div className="w-full max-w-[390px] px-6 pt-[60px] pb-0 sm:max-w-none sm:px-[120px] sm:pt-10 sm:pb-0 lg:px-0 lg:pt-0 lg:pb-0 flex flex-col items-center gap-10">
           <div className="relative w-full rounded-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
             {/* Background */}
-            <div className="relative h-[420px] sm:h-[480px] lg:min-h-[150px] lg:h-auto">
+            <div className="relative h-[420px] sm:h-[480px] lg:min-h-[445px] lg:h-auto">
               <Image
                 src={`${base}/assets/resource-center/resource-center-bg6.png`}
                 alt="Protect your data"

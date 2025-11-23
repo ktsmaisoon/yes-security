@@ -1,8 +1,10 @@
 import Image from 'next/image'
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
-const visionImage = `${base}/assets/Mission-vision/78c4ee0377a8c71ab100a462746ddb35d2e5261e.png`
-const missionImage = `${base}/assets/Mission-vision/80d13805bbac2e781c934ee95a5f57935759ff5f.png`
+const visionImage = `${base}/assets/Mission-vision/vision.png`
+const missionImage = `${base}/assets/Mission-vision/mission.png`
+const visionImageMo = `${base}/assets/Mission-vision/vision-mo.png`
+const missionImageMo = `${base}/assets/Mission-vision/mission-mo.png`
 
 interface MissionVisionProps {
   className?: string
@@ -24,18 +26,25 @@ export default function MissionVision({ className = "" }: MissionVisionProps) {
           "
         >
           {/* Vision Card */}
-          <div className="flex-1 relative h-[272px] lg:h-auto lg:min-h-[500px]">
+          <div className="relative w-[342px] h-[274px] lg:w-[600px] lg:h-[416px]">
             {/* Background Image */}
             <div className="absolute inset-0">
+              {/* Mobile background image */}
+              <Image
+                src={visionImageMo}
+                alt=""
+                fill
+                className="object-cover block lg:hidden"
+                aria-hidden="true"
+              />
+              {/* Desktop background image */}
               <Image
                 src={visionImage}
                 alt=""
                 fill
-                className="object-cover"
+                className="object-cover hidden lg:block"
                 aria-hidden="true"
               />
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/85 to-black"></div>
             </div>
 
             {/* Border */}
@@ -81,18 +90,25 @@ export default function MissionVision({ className = "" }: MissionVisionProps) {
           </div>
 
           {/* Mission Card */}
-          <div className="flex-1 relative h-[272px] lg:h-auto lg:min-h-[500px]">
+          <div className="relative w-[342px] h-[274px] lg:w-[600px] lg:h-[416px]">
             {/* Background Image */}
             <div className="absolute inset-0">
+              {/* Mobile background image */}
+              <Image
+                src={missionImageMo}
+                alt=""
+                fill
+                className="object-cover block lg:hidden"
+                aria-hidden="true"
+              />
+              {/* Desktop background image */}
               <Image
                 src={missionImage}
                 alt=""
                 fill
-                className="object-cover"
+                className="object-cover hidden lg:block"
                 aria-hidden="true"
               />
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/85 to-black"></div>
             </div>
 
             {/* Border */}

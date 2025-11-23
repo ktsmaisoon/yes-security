@@ -14,7 +14,7 @@ export default function CallToActionAboutUs({ className = "", children }: CallTo
       className={`
     full-bleed relative text-white overflow-hidden py-16 lg:py-20
     bg-[url('/assets/CallToAction-About-us/390_777.png')]
-    bg-no-repeat bg-[length:380px_777px] bg-[position:center_1445px]
+    bg-no-repeat bg-[length:380px_777px] bg-[position:center_1300px]
     sm:bg-[url('/assets/CallToAction-About-us/1440_2757.png')]
     sm:bg-no-repeat sm:bg-[length:1500px_620px] sm:bg-center
     ${className}
