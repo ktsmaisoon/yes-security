@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function PenetrationTestingTypes() {
@@ -18,11 +18,7 @@ export default function PenetrationTestingTypes() {
   // refs สำหรับเลื่อน
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const pausedRef = useRef(false);
   const posRef = useRef(0);
-
-  // สถานะ pause เมื่อโฮเวอร์
-  const [paused, setPaused] = useState(false);
 
   // Auto-scroll แบบต่อเนื่องตลอดเวลา (marquee)
   useEffect(() => {
@@ -33,33 +29,26 @@ export default function PenetrationTestingTypes() {
     let pos = container.clientWidth; // เริ่มนอกจอด้านขวา
     posRef.current = pos;
     let rafId = 0;
-    const speed = 1.5; // เร็วขึ้น (px/เฟรม)
+    const speed = 1; // ความเร็วเลื่อน (px/เฟรม)
 
     // ตั้งค่าเริ่มต้น เพื่อไม่ให้แทร็กอยู่ที่ตำแหน่ง 0 ชั่วคราว
     track.style.transform = `translateX(${pos}px)`;
 
     const tick = () => {
-      if (!pausedRef.current) {
-        pos -= speed;
-        const loopWidth = track.scrollWidth / 2; // เนื่องจากเรา duplicate items 2 เท่า
-        if (pos <= -loopWidth) {
-          // วนกลับไปจุดเริ่มเพื่อให้ต่อเนื่อง
-          pos += loopWidth;
-        }
-        posRef.current = pos;
-        track.style.transform = `translateX(${pos}px)`;
+      pos -= speed;
+      const loopWidth = track.scrollWidth / 2; // เนื่องจากเรา duplicate items 2 เท่า
+      if (pos <= -loopWidth) {
+        // วนกลับไปจุดเริ่มเพื่อให้ต่อเนื่อง
+        pos += loopWidth;
       }
+      posRef.current = pos;
+      track.style.transform = `translateX(${pos}px)`;
       rafId = requestAnimationFrame(tick);
     };
 
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
   }, []);
-
-  // Sync paused state to ref (เพื่อไม่ให้รีสตาร์ท loop เมื่อ hover)
-  useEffect(() => {
-    pausedRef.current = paused;
-  }, [paused]);
 
   // ปรับตำแหน่งเมื่อรีไซส์ โดยคงตำแหน่งเดิมไว้ (ถ้าเกินความกว้างใหม่ค่อย clamp)
   useEffect(() => {
@@ -95,8 +84,6 @@ export default function PenetrationTestingTypes() {
         <div
           ref={containerRef}
           className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden h-[210px] sm:h-[280px] lg:h-[300px]"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
         >
           <div ref={trackRef} className="absolute left-0 top-0 flex gap-4 sm:gap-6 will-change-transform">
             {[...items, ...items].map((it, i) => (
