@@ -38,6 +38,27 @@ export default function BlogDetail({ blog, basePrefix = "" }: { blog: Blog; base
             <Image src="/assets/blog/blog-bg1.png" alt="" fill className="object-cover" priority />
           </div>
         </div>
+        {/* Desktop-only rotated background overlay for resource center */}
+        <div
+          className="hidden lg:flex pointer-events-none select-none absolute z-0"
+          style={{
+            width: "1440px",
+            height: "1960px",
+            transform: "translate(-50%, -50%) rotate(-14.864deg)",
+            padding: "56px 120px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: "48px",
+            left: "50%",
+            top: "1620px",
+            backgroundImage: "url(/assets/resource-center/resource-center-mobg.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "contain",
+          }}
+        />
         <div className="relative container-site pb-10 flex flex-col justify-center items-start self-stretch shadow-[0_4px_4px_rgba(0,0,0,0.25)] lg:w-[1440px] lg:px-[120px] lg:items-start lg:gap-[24px] lg:pt-0 lg:pb-0 lg:shadow-none">
           <span className="inline-flex items-center justify-center gap-[10px] rounded-[41px] border border-[#3EFF51] px-[18px] py-[7px] text-[16px] leading-[22px] font-['Wix_Madefor_Display',_sans-serif] font-semibold text-[#3EFF51]
            lg:inline-flex lg:items-center lg:justify-center lg:gap-[10px] lg:h-[36px] lg:px-[18px] lg:py-[14px] lg:text-[16px] lg:leading-[22px]">
