@@ -3,14 +3,14 @@ import Image from 'next/image'
 // Asset imports
 const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 const singhaLogo = `${base}/assets/Who-trusts-us/525c5603d27fe296e84e043d0f2cdfbfff2419c9.png`
-const agodaLogo = `${base}/assets/Who-trusts-us/999c4b477e947c5e2701e31ec65610d12169d79b.png`
+const agodaLogo = `${base}/assets/Who-trusts-us/agoda3.png`
 const lazadaLogo = `${base}/assets/Who-trusts-us/10de95f44cf42d5b0fa0e176262c04dbb608ba46.png`
-const pttLogo = `${base}/assets/Who-trusts-us/299b8fc05496254cacd490d985d1b164f17b6dac.png`
-const landroverLogo = `${base}/assets/Who-trusts-us/29b4d53bdb940a1c9139daad2369767217a29183.png`
+const pttLogo = `${base}/assets/Who-trusts-us/999c4b477e947c5e2701e31ec65610d12169d79b.png`
+const landroverLogo = `${base}/assets/Who-trusts-us/299b8fc05496254cacd490d985d1b164f17b6dac.png`
 const gaysornLogo = `${base}/assets/Who-trusts-us/b4fe507fe4fd448d5a5d5cbe84115ca4a683f93e.png`
 const italtaiLogo = `${base}/assets/Who-trusts-us/4dddf07aca6747c84a75d7994d39aeff424083f9.png`
 const bgDecoration = `${base}/assets/Who-trusts-us/182c6834ca9ac4db50b2c5c479a5716f8df759a4.svg`
-const jaguarLogo = `${base}/assets/Who-trusts-us/30560bb687d0a101417492dd506cef67fba28b5e.svg`
+const jaguarLogo = `${base}/assets/Who-trusts-us/29b4d53bdb940a1c9139daad2369767217a29183.png`
 
 interface WhoTrustsUsProps {
   className?: string
@@ -25,16 +25,16 @@ interface LogoItem {
 
 const logoData: LogoItem[] = [
   { name: "Singha", src: singhaLogo, alt: "Singha Corporation logo" },
-  { name: "Jaguar", src: jaguarLogo, alt: "Jaguar logo" },
   {
     name: "Agoda",
     src: agodaLogo,
     alt: "Agoda logo",
     className: "lg:w-[150px]",
   },
-  { name: "Lazada", src: lazadaLogo, alt: "Lazada logo" },
   { name: "PTT", src: pttLogo, alt: "PTT logo" },
+  { name: "Lazada", src: lazadaLogo, alt: "Lazada logo" },
   { name: "Land Rover", src: landroverLogo, alt: "Land Rover logo" },
+  { name: "Jaguar", src: jaguarLogo, alt: "Jaguar logo" },
   { name: "Gaysorn", src: gaysornLogo, alt: "Gaysorn Village logo" },
   { name: "Italtai", src: italtaiLogo, alt: "Italtai logo" }
 ]
