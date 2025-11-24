@@ -48,7 +48,7 @@ const services: ServiceCard[] = [
     description: "Simulated real world attacks to reveal exploitable weaknesses across apps, networks, and infrastructure.",
     icon: serviceIcons[1],
     hover: serviceHovers[1],
-    link: "/penetration-testing"
+    link: "/our-service/penetration-testing"
   },
   {
     id: 2,
