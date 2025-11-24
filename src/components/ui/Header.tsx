@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,6 +16,28 @@ export default function Header() {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset || 0;
+      // Threshold to avoid jitter
+      const downThreshold = lastScrollY + 10;
+      const upThreshold = lastScrollY - 10;
+
+      if (y > downThreshold && y > 80) {
+        setIsHidden(true);
+        setLastScrollY(y);
+      } else if (y < upThreshold) {
+        setIsHidden(false);
+        setLastScrollY(y);
+      }
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [lastScrollY]);
 
   // Check if current route is Thai
   const isThaiRoute = pathname.startsWith('/th');
@@ -47,7 +70,11 @@ export default function Header() {
   const navLinks = getNavLinks();
 
   return (
-    <header className="bg-[#000c39] text-white fixed top-0 inset-x-0 z-[100] w-full" role="banner">
+    <header
+      className="bg-[#000c39] text-white fixed top-0 inset-x-0 z-[100] w-full"
+      role="banner"
+      style={{ transform: isHidden ? 'translateY(-100%)' : 'translateY(0)', transition: 'transform 250ms ease' }}
+    >
       <nav className="w-full py-2.5" role="navigation" aria-label="Main navigation">
         <div className="container-site">
           {/* Main Header Bar */}
