@@ -41,31 +41,56 @@ body {
   margin-right: auto;
   width: 100%;
   max-width: 1440px;
-  padding-left: 1rem; /* 16px */
+  padding-left: 1rem;
+  /* 16px */
   padding-right: 1rem;
 }
 
 @media (min-width: 640px) {
   .container-site {
-    padding-left: 1.5rem; /* 24px */
+    padding-left: 1.5rem;
+    /* 24px */
     padding-right: 1.5rem;
   }
 }
+
 @media (min-width: 1024px) {
   .container-site {
-    padding-left: 2rem; /* 32px */
+    padding-left: 2rem;
+    /* 32px */
     padding-right: 2rem;
   }
 }
 
 /* Utilities */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Desktop-only hide scrollbar */
 @media (min-width: 1024px) {
-  .desktop-no-scrollbar::-webkit-scrollbar { display: none; }
-  .desktop-no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .desktop-no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .desktop-no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* Utility: make a section span the full viewport width even inside a centered max-width wrapper */

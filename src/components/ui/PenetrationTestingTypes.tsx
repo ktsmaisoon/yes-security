@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, MouseEvent } from "react";
 import Image from "next/image";
 
 export default function PenetrationTestingTypes() {
@@ -15,55 +15,41 @@ export default function PenetrationTestingTypes() {
     { title: "Cloud Security Assessment", bg: `${base}/assets/penetration/type-card6.png`, ico: `${base}/assets/penetration/type6.png` },
   ];
 
-  // refs สำหรับเลื่อน
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const posRef = useRef(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
-  // Auto-scroll แบบต่อเนื่องตลอดเวลา (marquee)
-  useEffect(() => {
-    const container = containerRef.current;
-    const track = trackRef.current;
-    if (!container || !track) return;
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    if (!scrollContainerRef.current) return;
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeftRef.current = scrollContainerRef.current.scrollLeft;
+    scrollContainerRef.current.style.cursor = 'grabbing';
+    scrollContainerRef.current.style.userSelect = 'none';
+  };
 
-    let pos = container.clientWidth; // เริ่มนอกจอด้านขวา
-    posRef.current = pos;
-    let rafId = 0;
-    const speed = 1; // ความเร็วเลื่อน (px/เฟรม)
+  const handleMouseLeave = () => {
+    if (!scrollContainerRef.current) return;
+    isDraggingRef.current = false;
+    scrollContainerRef.current.style.cursor = 'grab';
+    scrollContainerRef.current.style.userSelect = 'auto';
+  };
 
-    // ตั้งค่าเริ่มต้น เพื่อไม่ให้แทร็กอยู่ที่ตำแหน่ง 0 ชั่วคราว
-    track.style.transform = `translateX(${pos}px)`;
+  const handleMouseUp = () => {
+    if (!scrollContainerRef.current) return;
+    isDraggingRef.current = false;
+    scrollContainerRef.current.style.cursor = 'grab';
+    scrollContainerRef.current.style.userSelect = 'auto';
+  };
 
-    const tick = () => {
-      pos -= speed;
-      const loopWidth = track.scrollWidth / 2; // เนื่องจากเรา duplicate items 2 เท่า
-      if (pos <= -loopWidth) {
-        // วนกลับไปจุดเริ่มเพื่อให้ต่อเนื่อง
-        pos += loopWidth;
-      }
-      posRef.current = pos;
-      track.style.transform = `translateX(${pos}px)`;
-      rafId = requestAnimationFrame(tick);
-    };
-
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
-  // ปรับตำแหน่งเมื่อรีไซส์ โดยคงตำแหน่งเดิมไว้ (ถ้าเกินความกว้างใหม่ค่อย clamp)
-  useEffect(() => {
-    const onResize = () => {
-      const container = containerRef.current;
-      const track = trackRef.current;
-      if (!container || !track) return;
-      const maxStart = container.clientWidth;
-      const nextPos = Math.min(posRef.current, maxStart);
-      posRef.current = nextPos;
-      track.style.transform = `translateX(${nextPos}px)`;
-    };
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!isDraggingRef.current || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5; // Multiply for faster scroll
+    scrollContainerRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
 
   return (
     <section aria-labelledby="pt-types" className="relative text-white">
@@ -80,14 +66,18 @@ export default function PenetrationTestingTypes() {
           <span className="block sm:hidden">Testing services do we offer?</span>
         </h2>
 
-        {/* Slider - continuous marquee */}
+        {/* Draggable scrollable cards */}
         <div
-          ref={containerRef}
-          className="relative w-screen -mx-[calc(50vw-50%)] overflow-hidden h-[210px] sm:h-[280px] lg:h-[300px]"
+          ref={scrollContainerRef}
+          className="overflow-x-auto h-[210px] sm:h-[280px] lg:h-[300px] scrollbar-hide cursor-grab active:cursor-grabbing w-screen relative left-0 right-0 -mr-[24px] sm:-mr-[calc(100vw-100%)]"
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
         >
-          <div ref={trackRef} className="absolute left-0 top-0 flex gap-4 sm:gap-6 will-change-transform">
-            {[...items, ...items].map((it, i) => (
-              <div key={i} className="shrink-0 w-[342px] sm:w-[48%] lg:w-[360px]">
+          <div className="flex gap-4 sm:gap-6 h-full pr-[24px] sm:pr-[120px]">
+            {items.map((it, i) => (
+              <div key={i} className="shrink-0 w-[342px] sm:w-[400px] lg:w-[420px] pointer-events-none">
                 <Card title={it.title} bg={it.bg} icon={it.ico} />
               </div>
             ))}
@@ -106,9 +96,9 @@ export default function PenetrationTestingTypes() {
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_100%)]" />
 
         {/* Content */}
-        <div className="relative h-full w-full px-[38px] py-[40px] flex flex-col items-start justify-center text-left gap-[44px] sm:items-center sm:text-center sm:gap-[37px] sm:px-6 sm:py-8">
+        <div className="relative h-full w-full px-[38px] py-[40px] flex flex-col items-center justify-center text-center gap-[44px] sm:gap-[37px] sm:px-6 sm:py-8">
           <Image src={icon} alt="" width={80} height={80} className="opacity-100 shrink-0 block" />
-          <p className="text-base sm:text-lg lg:text-xl font-medium text-white tracking-[0.2px] whitespace-pre-line leading-tight text-left sm:text-center flex justify-start sm:justify-center items-start h-[52px] sm:h-[60px] lg:h-[68px]">
+          <p className="text-base sm:text-lg lg:text-xl font-medium text-white tracking-[0.2px] whitespace-pre-line leading-tight text-center flex justify-center items-start h-[52px] sm:h-[60px] lg:h-[68px]">
             {title}
           </p>
         </div>
