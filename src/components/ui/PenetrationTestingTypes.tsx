@@ -81,6 +81,8 @@ export default function PenetrationTestingTypes() {
                 <Card title={it.title} bg={it.bg} icon={it.ico} />
               </div>
             ))}
+            {/* Spacer div to allow last card to scroll fully into view */}
+            <div className="shrink-0 w-[24px] sm:w-[120px] lg:w-[170px]"></div>
           </div>
         </div>
       </div>
