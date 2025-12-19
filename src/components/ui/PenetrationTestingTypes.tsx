@@ -69,7 +69,7 @@ export default function PenetrationTestingTypes() {
         {/* Draggable scrollable cards */}
         <div
           ref={scrollContainerRef}
-          className="overflow-x-auto h-[210px] sm:h-[280px] lg:h-[300px] scrollbar-hide cursor-grab active:cursor-grabbing w-screen relative left-0 right-0 -mr-[24px] sm:-mr-[calc(100vw-100%)]"
+          className="overflow-x-auto h-[210px] sm:h-[280px] lg:h-[300px] scrollbar-hide cursor-grab active:cursor-grabbing relative w-[calc(100vw-24px)] sm:w-[calc(50vw+600px)]"
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
