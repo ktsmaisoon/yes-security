@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, MouseEvent } from "react";
 import Image from "next/image";
 
 export default function PenetrationTestingTypes() {
@@ -14,42 +13,6 @@ export default function PenetrationTestingTypes() {
     { title: "Wireless & IoT\nDevice Testing", bg: `${base}/assets/penetration/type-card5.png`, ico: `${base}/assets/penetration/type5.png` },
     { title: "Cloud Security Assessment", bg: `${base}/assets/penetration/type-card6.png`, ico: `${base}/assets/penetration/type6.png` },
   ];
-
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const scrollLeftRef = useRef(0);
-
-  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
-    if (!scrollContainerRef.current) return;
-    isDraggingRef.current = true;
-    startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
-    scrollLeftRef.current = scrollContainerRef.current.scrollLeft;
-    scrollContainerRef.current.style.cursor = 'grabbing';
-    scrollContainerRef.current.style.userSelect = 'none';
-  };
-
-  const handleMouseLeave = () => {
-    if (!scrollContainerRef.current) return;
-    isDraggingRef.current = false;
-    scrollContainerRef.current.style.cursor = 'grab';
-    scrollContainerRef.current.style.userSelect = 'auto';
-  };
-
-  const handleMouseUp = () => {
-    if (!scrollContainerRef.current) return;
-    isDraggingRef.current = false;
-    scrollContainerRef.current.style.cursor = 'grab';
-    scrollContainerRef.current.style.userSelect = 'auto';
-  };
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!isDraggingRef.current || !scrollContainerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5; // Multiply for faster scroll
-    scrollContainerRef.current.scrollLeft = scrollLeftRef.current - walk;
-  };
 
   return (
     <section aria-labelledby="pt-types" className="relative text-white">
@@ -66,24 +29,12 @@ export default function PenetrationTestingTypes() {
           <span className="block sm:hidden">Testing services do we offer?</span>
         </h2>
 
-        {/* Draggable scrollable cards */}
-        <div
-          ref={scrollContainerRef}
-          className="overflow-x-auto h-[210px] sm:h-[280px] lg:h-[300px] scrollbar-hide cursor-grab active:cursor-grabbing relative w-[calc(100vw-24px)] sm:w-[calc(50vw+600px)]"
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-        >
-          <div className="flex gap-4 sm:gap-6 h-full pr-[24px] sm:pr-[120px]">
-            {items.map((it, i) => (
-              <div key={i} className="shrink-0 w-[342px] sm:w-[400px] lg:w-[420px] pointer-events-none">
-                <Card title={it.title} bg={it.bg} icon={it.ico} />
-              </div>
-            ))}
-            {/* Spacer div to allow last card to scroll fully into view */}
-            <div className="shrink-0 w-[24px] sm:w-[120px] lg:w-[170px]"></div>
-          </div>
+        <div className="flex flex-wrap justify-between w-full gap-y-4 sm:gap-y-6">
+          {items.map((it, i) => (
+            <div key={i} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <Card title={it.title} bg={it.bg} icon={it.ico} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -95,7 +46,7 @@ export default function PenetrationTestingTypes() {
         {/* Background */}
         <Image src={bg} alt="" fill className="object-cover opacity-100" />
         {/* Gradient overlay for readability */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.55)_45%,rgba(0,0,0,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0)_0%,rgba(0,0,0,0)_25%,rgba(0,0,0,0.12)_55%,rgba(0,0,0,0.85)_100%)]" />
 
         {/* Content */}
         <div className="relative h-full w-full px-[38px] py-[40px] flex flex-col items-center justify-center text-center gap-[44px] sm:gap-[37px] sm:px-6 sm:py-8">
